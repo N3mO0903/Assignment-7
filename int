@@ -1,0 +1,18 @@
+import unittest
+from app import create_user, get_user_profile
+
+class TestIntegration(unittest.TestCase):
+
+    def test_user_creation_and_retrieval(self):
+
+        user_id = create_user("John", "john@example.com")
+
+        user = get_user_profile(user_id)
+
+        self.assertIsNotNone(user)
+        self.assertEqual(user["name"], "John")
+        self.assertEqual(user["email"], "john@example.com")
+
+
+if __name__ == "__main__":
+    unittest.main()
