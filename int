@@ -1,18 +1,17 @@
 import unittest
-from app import create_user, get_user_profile
+from todo import TaskManager
 
 class TestIntegration(unittest.TestCase):
 
-    def test_user_creation_and_retrieval(self):
+    def test_mark_task_done_wrong_index(self):
+        manager = TaskManager()
 
-        user_id = create_user("John", "john@example.com")
+        manager.add_task("Task 1")
+        manager.add_task("Task 2")
 
-        user = get_user_profile(user_id)
+        manager.mark_task_done(0)
 
-        self.assertIsNotNone(user)
-        self.assertEqual(user["name"], "John")
-        self.assertEqual(user["email"], "john@example.com")
-
+        self.assertEqual(manager.tasks[0].status, "done")
 
 if __name__ == "__main__":
     unittest.main()
