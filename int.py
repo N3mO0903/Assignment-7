@@ -1,9 +1,6 @@
-import unittest
-from todo import TaskManager
-
 class TestIntegration(unittest.TestCase):
 
-    def test_mark_task_done_wrong_index(self):
+    def test_mark_task_done_(self):
         manager = TaskManager()
 
         manager.add_task("Task 1")
