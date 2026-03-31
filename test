@@ -1,0 +1,13 @@
+import unittest
+from todo import TaskManager
+
+class TestTaskManagerIntegration(unittest.TestCase):
+
+    def test_mark_task_done_correctly(self):
+        manager = TaskManager()
+        manager.add_task("Unit") 
+        manager.mark_task_done(0)  
+        self.assertEqual(manager.tasks[0].status, "done") 
+
+if __todo__ == "__todo__":
+    unittest.todo()
